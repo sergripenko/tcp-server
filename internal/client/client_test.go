@@ -162,9 +162,9 @@ func TestClient_HandleConnectionOk(t *testing.T) {
 				assert.NoError(t, err)
 
 				return getReadMock(fmt.Sprintf("%s|%s\n", domain.MessageTypeResponseChallenge, string(bytes)), p), nil
-			} else {
-				return getReadMock(fmt.Sprintf("%s|%s\n", domain.MessageTypeResponseChallenge, "mock quote"), p), nil
 			}
+
+			return getReadMock(fmt.Sprintf("%s|%s\n", domain.MessageTypeResponseChallenge, "mock quote"), p), nil
 		},
 	}
 
