@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  server:
+    build:
+      context: .
+      dockerfile: server.Dockerfile
+    image: sergripenko/tcp-server/server:latest
+    restart: 'no'
+
+  client:
+    build:
+      context: .
+      dockerfile: client.Dockerfile
+    image: sergripenko/tcp-server/client:latest
+    restart: 'no'
+    depends_on:
+      server:
+        condition: service_started
+
